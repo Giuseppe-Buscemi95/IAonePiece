@@ -1,3 +1,15 @@
+label{
+  font-size: 20px;
+  font-family: 'Righteous', Arial, sans-serif;
+  color: black;
+  font-weight: 400;
+}
+
+label:hover{
+  color: #007bff;
+
+}
+
 .example-card {
   max-width: 400px;
   margin: 15px auto;
@@ -9,26 +21,37 @@
   background-size: cover;
 }
 .contenitoreImage{
-  justify-content: center;
-  display: flex;
   width: 600px;
-  height: 600px;
-  background-color: aliceblue;
-  color: chartreuse;
+  height: 400px;
+  background-color: transparent;
+  border: 2px solid #ffffff80;
+  border-radius: 20px;
+  backdrop-filter: blur(7px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
   margin: 100px auto;
+  padding: 20px 0;
   text-align: center;
  
 }
-.dragImg{
+.dragImg-container{
   width: 400px;
-  border: 3px black dashed;
-  height: 400px;
+  border: 4px #181717 dashed;
+  height: 250px;
   border-radius: 10px;
 }
-.IconIMG{
- margin: 200px auto;
+
+.dragImg-container:hover{
+  border-color: #007bff;
+  background-color: #007bff1d;
+  color: #007bff;
 }
-.IconDrag{
- font-size: 200px;
+
+.dragImg-area{
+ margin: 100px auto;
+}
+.icon-addDocument{
+ font-size: 40px;
 
 }

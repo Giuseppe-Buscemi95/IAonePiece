@@ -9,6 +9,7 @@ export class ListenerDirective {
   @Output() onFileDropped = new EventEmitter<any>();
 
   @HostListener('dragover', ['$event']) onDragOver(evt: DragEvent) {
+    
     evt.preventDefault();
     evt.stopPropagation();
   }

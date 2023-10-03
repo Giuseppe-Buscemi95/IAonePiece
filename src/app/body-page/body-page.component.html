@@ -2,13 +2,13 @@
   <div class="row  contenitoreImage">
     <div class="col-12">
        <form >
-        <label (click)="input1.click()" appListener (onFileDropped)="onDrag($event)" style="cursor: pointer;">Seleziona un file</label>
+        <label (click)="input1.click()" appListener (onFileDropped)="onDrag($event)" style="cursor: pointer;">Choose a file or drag it here!</label>
         <input #input1 hidden type="file" (change)="onDrag($event)">
-      
-        <div class="dragImg" appListener (onFileDropped)="onDrag($event)">
-          <div class="container IconIMG ">
-            <fa-icon  class="IconDrag"><i class="fa-solid fa-file-circle-plus fa-2xl"></i></fa-icon>
-          </div>
+
+        <div class="dragImg-container" appListener (onFileDropped)="onDrag($event)">
+          <div class="container dragImg-area">
+            <fa-icon [icon]="fontIcon" class="icon-addDocument"></fa-icon>
+          </div> 
         
         </div>
        </form>
