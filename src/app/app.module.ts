@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
@@ -9,13 +9,16 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatGridListModule } from '@angular/material/grid-list';
 import {MatCardModule} from  '@angular/material/card';
 import { ListenerDirective } from './ListenerDirective';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
     BodyPageComponent,
-    ListenerDirective,
+    ListenerDirective
     
     
     
@@ -26,7 +29,9 @@ import { ListenerDirective } from './ListenerDirective';
     BrowserAnimationsModule,
     MatGridListModule,
     MatCardModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    FormsModule
+    
   
     
   ],

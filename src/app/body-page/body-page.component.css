@@ -40,6 +40,9 @@ label:hover{
   border: 4px #181717 dashed;
   height: 250px;
   border-radius: 10px;
+  display: flex;
+  justify-content: center; /* Allinea l'icona al centro orizzontalmente */
+  align-items: center; /* Allinea l'icona al centro verticalmente */
 }
 
 .dragImg-container:hover{
@@ -53,5 +56,4 @@ label:hover{
 }
 .icon-addDocument{
  font-size: 40px;
-
 }
