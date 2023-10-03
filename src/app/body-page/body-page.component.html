@@ -1,11 +1,26 @@
-<section class="bodyPage">
-    <div class="container-fluid ">
-        <div class="row">
-            <div class="col-12 ">
-                <p>ciao</p>
-            </div>
+
+
+
+<mat-grid-list  cols = "2"  rowHeight = "2:1"  > 
+  <mat-grid-tile > 
+  
+    <div class="row contenitore">
+        <div class="col-12">
+           <form >
+            <label (click)="input1.click()" appListener (onFileDropped)="onDrag($event)" style="cursor: pointer;">Seleziona un file</label>
+            <input #input1 hidden type="file" (change)="onDrag($event)">
+            
+           </form>
         </div>
     </div>
-</section>
+
+    
+</mat-grid-tile > 
+  <mat-grid-tile *ngIf="source.length === 0" > 
+    <img id="imgEmpty" src="/assets/images/nessuna-foto-o-icona-immagine-vuota-caricamento-di-immagini-o-contrassegno-immagine-mancante-immagine-non-disponibile-o-immagine-in-arrivo-segno-silhouette-naturale-semplice-nella-cornice-2f8dh42.jpg">
+</mat-grid-tile > 
+  <mat-grid-tile > 3 </mat-grid-tile > 
+  <mat-grid-tile > 4 </mat-grid-tile > 
+</mat-grid-list >
 
 

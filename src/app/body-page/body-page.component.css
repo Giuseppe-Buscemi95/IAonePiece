@@ -1,0 +1,15 @@
+.contenitore{
+    width: 100%;
+    height: 100%;
+    background-color: rgb(244, 248, 240);
+    opacity: 0.6;
+}
+.mat-grid-list{
+align-items: center;
+margin: 100px;
+
+}
+#imgEmpty{
+  height: 100%;
+  width: 100%;
+}
