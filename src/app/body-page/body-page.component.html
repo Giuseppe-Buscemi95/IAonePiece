@@ -1,35 +1,50 @@
 <div class="container-fluid">
   <div class="row  contenitoreImage">
     <div class="col-12">
-       <form >
-        <label (click)="input1.click()" appListener (onFileDropped)="onDrag($event)" style="cursor: pointer;">Choose a file or drag it here!</label>
-        <input #input1 hidden type="file" (change)="onDrag($event)">
 
-        <div class="dragImg-container" appListener (onFileDropped)="onDrag($event)">
-          <div class="container dragImg-area">
-            <fa-icon [icon]="fontIcon" class="icon-addDocument"></fa-icon>
-          </div> 
-        
-        </div>
-       </form>
-       <img [src]="uploadedImage" alt="">
-       <!-- <mat-card class="example-card">
-  
-        <mat-card-header>
-          
-          <mat-card-title>Shiba Inu</mat-card-title>
-          <mat-card-subtitle>Dog Breed</mat-card-subtitle>
-        </mat-card-header>
-        <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
-        <mat-card-content>
-          <p>
-            The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
-            A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
-            bred for hunting.
-          </p>
-        </mat-card-content>
+      <div *ngIf="uploadedImage === null; then UploadImage else ShowImage"></div>
+
+        <ng-template #UploadImage> 
+
+            <label (click)="input1.click()" style="cursor: pointer;">Choose a file or drag it here!</label>
+            <input #input1 hidden type="file" (change)="onDragClick($event)">
+    
+            <div class="dragImg-container" appListener (onFileDropped)="onDragDrop($event)">
+              <div class="container dragImg-area">
+                <fa-icon [icon]="fontIcon" class="icon-addDocument"></fa-icon>
+              </div>
+
+            </div>
+
+        </ng-template>
+
+
+        <ng-template #ShowImage>
+
+          <div style="display: none;" id="loader">
+            <mat-spinner></mat-spinner>
+          </div>
+
+                <mat-card class="example-card">
+
+                  <mat-card-header>
+                    
+                    <mat-card-title>Zoro</mat-card-title>
+                    <mat-card-subtitle>One Piece</mat-card-subtitle>
+                  </mat-card-header>
+                  <img mat-card-image [src]="uploadedImage" class="img-fluid" alt="Photo of Zoro">
+                  <mat-card-content>
+                    <p>
+                      The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
+                      A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
+                      bred for hunting.
+                    </p>
+                  </mat-card-content>
+                
+                </mat-card>
+
+        </ng-template>
       
-      </mat-card> -->
       
       
     </div>

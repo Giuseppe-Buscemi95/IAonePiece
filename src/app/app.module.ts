@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import {MatRadioModule} from '@angular/material/radio';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
@@ -10,6 +10,8 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import {MatCardModule} from  '@angular/material/card';
 import { ListenerDirective } from './ListenerDirective';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+
 
 import { FormsModule } from '@angular/forms';
 
@@ -30,7 +32,9 @@ import { FormsModule } from '@angular/forms';
     MatGridListModule,
     MatCardModule,
     FontAwesomeModule,
-    FormsModule
+    MatRadioModule,
+    FormsModule,
+    MatProgressSpinnerModule, 
     
   
     
@@ -38,4 +42,6 @@ import { FormsModule } from '@angular/forms';
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule { 
+}
+

@@ -57,3 +57,7 @@ label:hover{
 .icon-addDocument{
  font-size: 40px;
 }
+
+.img-fluid {
+  width: 100%;
+}
