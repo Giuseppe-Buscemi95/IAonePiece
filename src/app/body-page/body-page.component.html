@@ -1,26 +1,40 @@
-
-
-
-<mat-grid-list  cols = "2"  rowHeight = "2:1"  > 
-  <mat-grid-tile > 
-  
-    <div class="row contenitore">
-        <div class="col-12">
-           <form >
-            <label (click)="input1.click()" appListener (onFileDropped)="onDrag($event)" style="cursor: pointer;">Seleziona un file</label>
-            <input #input1 hidden type="file" (change)="onDrag($event)">
-            
-           </form>
+<div class="container-fluid">
+  <div class="row  contenitoreImage">
+    <div class="col-12">
+       <form >
+        <label (click)="input1.click()" appListener (onFileDropped)="onDrag($event)" style="cursor: pointer;">Seleziona un file</label>
+        <input #input1 hidden type="file" (change)="onDrag($event)">
+      
+        <div class="dragImg" appListener (onFileDropped)="onDrag($event)">
+          <div class="container IconIMG ">
+            <fa-icon  class="IconDrag"><i class="fa-solid fa-file-circle-plus fa-2xl"></i></fa-icon>
+          </div>
+        
         </div>
+       </form>
+       <!-- <mat-card class="example-card">
+  
+        <mat-card-header>
+          
+          <mat-card-title>Shiba Inu</mat-card-title>
+          <mat-card-subtitle>Dog Breed</mat-card-subtitle>
+        </mat-card-header>
+        <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
+        <mat-card-content>
+          <p>
+            The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
+            A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
+            bred for hunting.
+          </p>
+        </mat-card-content>
+      
+      </mat-card> -->
+      
+      
     </div>
+  </div>
+  
+</div>
 
-    
-</mat-grid-tile > 
-  <mat-grid-tile *ngIf="source.length === 0" > 
-    <img id="imgEmpty" src="/assets/images/nessuna-foto-o-icona-immagine-vuota-caricamento-di-immagini-o-contrassegno-immagine-mancante-immagine-non-disponibile-o-immagine-in-arrivo-segno-silhouette-naturale-semplice-nella-cornice-2f8dh42.jpg">
-</mat-grid-tile > 
-  <mat-grid-tile > 3 </mat-grid-tile > 
-  <mat-grid-tile > 4 </mat-grid-tile > 
-</mat-grid-list >
 
 

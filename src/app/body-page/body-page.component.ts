@@ -1,5 +1,5 @@
 import { Component, OnInit ,Input, OnChanges, SimpleChanges } from '@angular/core';
-
+import { faFileCirclePlus } from '@fortawesome/free-solid-svg-icons';
 @Component({
   selector: 'app-body-page',
   templateUrl: './body-page.component.html',
@@ -7,7 +7,8 @@ import { Component, OnInit ,Input, OnChanges, SimpleChanges } from '@angular/cor
 })
 export class BodyPageComponent {
 
-  
+  fontIcon = faFileCirclePlus;
+
   
   source: any[] = [];
 
@@ -19,7 +20,7 @@ constructor(){
 
   onDrag(event : Event){
    
-event.preventDefault()
+
     const dragEvent = event as DragEvent;
     console.log(dragEvent.dataTransfer?.files)
     

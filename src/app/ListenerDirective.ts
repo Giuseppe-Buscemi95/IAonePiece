@@ -22,7 +22,7 @@ export class ListenerDirective {
     event.preventDefault();
     event.stopPropagation();
     let files = event.dataTransfer?.files;
-    //console.log(files);
+    console.log(files);
     if (files?.length.toString() != null) {
       this.onFileDropped.emit(files)
     }
