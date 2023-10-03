@@ -1,17 +1,23 @@
 <div class="container-fluid">
   <div class="row  contenitoreImage">
     <div class="col-12">
-       <form >
-        <label (click)="input1.click()" appListener (onFileDropped)="onDrag($event)" style="cursor: pointer;">Seleziona un file</label>
+       <form>
+        <label (click)="input1.click()" appListener (onFileDropped)="onDragDrop($event)" style="cursor: pointer;">Seleziona un file</label>
         <input #input1 hidden type="file" (change)="onDrag($event)">
       
-        <div class="dragImg" appListener (onFileDropped)="onDrag($event)">
-          <div class="container IconIMG ">
-            <fa-icon  class="IconDrag"><i class="fa-solid fa-file-circle-plus fa-2xl"></i></fa-icon>
+        <div class="dragImg" >
+          <div class="container IconIMG " appListener (onFileDropped)="onDragDrop($event)">
+              <span class="material-symbols-outlined">
+              add_ad
+              </span>
           </div>
-        
+        </div>
+        <div class="example-button-row">
+          <button mat-button>Basic</button>
+          <button mat-button disabled>Disabled</button>
         </div>
        </form>
+       <img [src]="uploadedImage" alt="">
        <!-- <mat-card class="example-card">
   
         <mat-card-header>
