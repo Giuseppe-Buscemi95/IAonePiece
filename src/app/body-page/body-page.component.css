@@ -13,6 +13,8 @@ label:hover{
 .example-card {
   max-width: 400px;
   margin: 15px auto;
+  background-color: white;
+  color: red
  
 }
 
@@ -32,7 +34,6 @@ label:hover{
   align-items: center;
   margin: 100px auto;
   padding: 20px 0;
-  text-align: center;
  
 }
 .dragImg-container{
@@ -45,7 +46,7 @@ label:hover{
   align-items: center; /* Allinea l'icona al centro verticalmente */
 }
 
-.dragImg-container:hover{
+.dragImg-container.dragover{
   border-color: #007bff;
   background-color: #007bff1d;
   color: #007bff;
@@ -60,4 +61,15 @@ label:hover{
 
 .img-fluid {
   width: 100%;
+}
+
+.retryButton{
+  background-color: #007bff;
+  color: white;
+  border-radius: 10px;
+  width: 130px;
+  padding: 10px;
+  text-align: center;
+  margin: 10px auto;
+  cursor: pointer;
 }
