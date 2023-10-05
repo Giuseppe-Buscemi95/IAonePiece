@@ -19,7 +19,8 @@ label:hover{
   max-width: 400px;
   margin: 15px auto;
   background-color: white;
-  color: red
+  color: black;
+  justify-content: center;
  
 }
 
@@ -29,7 +30,7 @@ label:hover{
 }
 .contenitoreImage{
   width: 600px;
-  height: 400px;
+  height: fit-content;
   background-color: transparent;
   border: 2px solid #ffffff80;
   border-radius: 20px;
@@ -38,13 +39,12 @@ label:hover{
   justify-content: center;
   align-items: center;
   margin: 100px auto;
-  padding: 20px 0;
+  padding: 20px 0px;
  
 }
 .dragImg-container{
   width: 400px;
   border: 4px #181717 dashed;
-  height: 250px;
   border-radius: 10px;
   display: flex;
   justify-content: center; /* Allinea l'icona al centro orizzontalmente */
@@ -55,6 +55,7 @@ label:hover{
   border-color: #007bff;
   background-color: #007bff1d;
   color: #007bff;
+
 }
 
 .dragImg-area{
@@ -73,8 +74,13 @@ label:hover{
   color: white;
   border-radius: 10px;
   width: 130px;
-  padding: 10px;
+  padding: 7px;
   text-align: center;
   margin: 10px auto;
   cursor: pointer;
+}
+
+.retryButton:hover{
+  background-color: #4ea3ff;
+
 }
