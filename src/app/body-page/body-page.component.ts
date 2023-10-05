@@ -3,6 +3,7 @@ import { ListenerDirective } from '../ListenerDirective';
 import { faFileCirclePlus } from '@fortawesome/free-solid-svg-icons';
 import { HttpClient, HttpHeaders } from  '@angular/common/http';
 import { environment } from 'src/environments/environment';
+import * as base64js from 'base64-js';
 @Component({
   selector: 'app-body-page',
   templateUrl: './body-page.component.html',
@@ -61,22 +62,37 @@ export class BodyPageComponent {
   }
 
   CustomVisionAzure(uploadimage: ArrayBuffer| string | null){
+    let prova ;
+    let blobImage;
+    console.log(uploadimage);
    if (uploadimage instanceof ArrayBuffer) {
      this.upl.push(new Uint8Array(uploadimage));
+   } else if(uploadimage != null) {
+    const base64WithoutPrefix = uploadimage.replace(/^data:image\/(jpeg|jpg);base64,/, ""); //rimozione del prefisso prima della conversione
+    //const binaryString = atob(base64WithoutPrefix);
+    ///
+    /// -- fai il commento ALEX
+     prova = base64js.toByteArray(base64WithoutPrefix);
+      blobImage = new Blob([prova], { type: "base64" })
+     console.log(blobImage);
+    
+    
    }
     const predictionKeyValue = environment.Value;
     const predictionKeyName = environment.Key;
-
-    console.log(this.upl)
+    
+  
     const headers = new HttpHeaders()
-    .set('Content-Type', 'application/octet-stream')
+    .set('Content-Type', 'application/json; charset=utf-8')
     .set(predictionKeyName, predictionKeyValue);
   
    
 
-    this.http.post<any>("https://imagesonepiececlassifications-prediction.cognitiveservices.azure.com/customvision/v3.0/Prediction/c775cf70-e0d8-42d4-9d8f-a1c2b54ec55f/classify/iterations/Iteration2/image",  , 
+    this.http.post<any>("https://imagesonepiececlassifications-prediction.cognitiveservices.azure.com/customvision/v3.0/Prediction/c775cf70-e0d8-42d4-9d8f-a1c2b54ec55f/classify/iterations/Iteration2/image", blobImage , 
     {headers}).subscribe((resp)=>
     console.log(resp)
+    
+
     )
   }
 
