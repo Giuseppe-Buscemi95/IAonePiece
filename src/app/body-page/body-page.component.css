@@ -25,11 +25,12 @@ label:hover{
 }
 
 .example-header-image {
-  background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
   background-size: cover;
 }
+
+
 .contenitoreImage{
-  width: 600px;
+  width: 500px;
   height: fit-content;
   background-color: transparent;
   border: 2px solid #ffffff80;

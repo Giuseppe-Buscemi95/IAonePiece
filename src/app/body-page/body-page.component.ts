@@ -61,33 +61,68 @@ export class BodyPageComponent {
     }
   }
 
+  getAvatarImage(pgName: string):string {
+    switch(pgName){
+      case 'Luffy':
+        return "../../assets/images/luffy_avatar.jpeg";
+
+      case 'Zoro':
+        return "../../assets/images/zoro_avatar.jpg";
+
+      case 'Sanji':
+        return "../../assets/images/sanji_avatar.jpeg";
+
+      case 'Tony Chopper':
+        return "../../assets/images/chopper_avatar.jpeg";
+
+      case 'Nami':
+        return "../../assets/images/nami_avatar.jpeg";
+
+      case 'Usopp':
+        return "../../assets/images/usopp_avatar.jpeg";
+
+      case 'Nico Robin':
+        return "../../assets/images/nico_robin_avatar.jpeg";
+
+      case 'Aokiji':
+        return "../../assets/images/aokiji_avatar.jpeg";
+
+      case 'Crocodile':
+        return "../../assets/images/crocodile_avatar.jpeg";
+
+      default: 
+        return ""; 
+    }
+  }
+
+  //Passo immagine da analizzare tramite POST all'endpoint di Custom Vision di Azure
   CustomVisionAzure(uploadimage: ArrayBuffer| string | null){
-    let prova ;
+    let byteArrayImage ;
     let blobImage;
+
     console.log(uploadimage);
    if (uploadimage instanceof ArrayBuffer) {
      this.upl.push(new Uint8Array(uploadimage));
    } else if(uploadimage != null) {
     const base64WithoutPrefix = uploadimage.replace(/^data:image\/(jpeg|jpg);base64,/, ""); //rimozione del prefisso prima della conversione
-    //const binaryString = atob(base64WithoutPrefix);
-    ///
-    /// -- fai il commento ALEX
-     prova = base64js.toByteArray(base64WithoutPrefix);
-      blobImage = new Blob([prova], { type: "base64" })
+  
+     // Conversione da stringa64 ad array di byte, e successivo incapsulamento in blob, da passare a richiesta HTTP
+     byteArrayImage = base64js.toByteArray(base64WithoutPrefix);
+      blobImage = new Blob([byteArrayImage], { type: "base64" })
      console.log(blobImage);
-    
-    
+
    }
+
+   //variabili d'ambiente con valori API di Custom Vision
     const predictionKeyValue = environment.Value;
     const predictionKeyName = environment.Key;
     
-  
+  //httpHeader contiene metadati e valori predictionAPI
     const headers = new HttpHeaders()
     .set('Content-Type', 'application/json; charset=utf-8')
     .set(predictionKeyName, predictionKeyValue);
   
    
-
     this.http.post<any>("https://imagesonepiececlassifications-prediction.cognitiveservices.azure.com/customvision/v3.0/Prediction/c775cf70-e0d8-42d4-9d8f-a1c2b54ec55f/classify/iterations/Iteration2/image", blobImage , 
     {headers}).subscribe((resp)=>
     console.log(resp)

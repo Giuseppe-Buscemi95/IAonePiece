@@ -29,15 +29,17 @@
 
                   <mat-card-header>
                     
-                    <mat-card-title>Zoro</mat-card-title>
+                    <div mat-card-avatar class="example-header-image" [ngStyle]="{ 'background-image': 'url(' + getAvatarImage('Sanji') + ')' }"></div>
+                    <mat-card-title>Sanji</mat-card-title>
                     <mat-card-subtitle style="color:#5a5a5a; padding-bottom: 16px">One Piece</mat-card-subtitle>
                   </mat-card-header>
-                  <img mat-card-image [src]="uploadedImage" class="img-fluid" alt="Photo of Zoro">
+                  <img mat-card-image [src]="uploadedImage" class="img-fluid" alt="Not found">
                   <mat-card-content style="padding-top:16px">
                     <p>
-                      The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
+                      So cucinare, so dare calci, mi piacciono le femmine, il mio sogno è pescare in un posto dove ci sono tutti i pesci, perdo ingenti litri di sangue dal naso e... guardo Dellimellow su Youtube!
+                      <!-- The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
                       A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
-                      bred for hunting.
+                      bred for hunting. -->
                     </p>
                   </mat-card-content>
                   <button class="retryButton" onclick="window.location.reload()"> Prova di nuovo ! </button>
