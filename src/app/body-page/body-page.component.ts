@@ -1,7 +1,8 @@
 import { Component, ViewChild } from '@angular/core';
 import { ListenerDirective } from '../ListenerDirective';
 import { faFileCirclePlus } from '@fortawesome/free-solid-svg-icons';
-
+import { HttpClient, HttpHeaders } from  '@angular/common/http';
+import { environment } from 'src/environments/environment';
 @Component({
   selector: 'app-body-page',
   templateUrl: './body-page.component.html',
@@ -14,11 +15,11 @@ export class BodyPageComponent {
 
   uploadedImage: string | ArrayBuffer | null = null;
   fontIcon = faFileCirclePlus;
-
+  upl:Uint8Array[] = []
   source: any[] = [];
   
 
-  constructor() {}
+  constructor(private http: HttpClient) {}
 
   onDragDrop(event: FileList) {
     console.log(event[0].name);
@@ -27,7 +28,9 @@ export class BodyPageComponent {
     reader.readAsDataURL(event[0]); //permette di leggere i dati url
     reader.addEventListener('loadend', () => {
       this.uploadedImage = reader.result; //
+      this.CustomVisionAzure(this.uploadedImage) //POST CUSTOM VISION AZURE
     });
+   
   }
 
   onDragClick(event: Event) {
@@ -48,10 +51,33 @@ export class BodyPageComponent {
       reader.readAsDataURL(file); // Leggi il file come URL dati
       reader.addEventListener('loadend', () => {
         this.uploadedImage = reader.result; // Imposta l'immagine caricata
+        this.CustomVisionAzure(this.uploadedImage) //POST CUSTOM VISION AZURE
       });
+
     } else {
       // Nessun file selezionato, gestisci il caso appropriato qui
       console.log('Nessun file selezionato.');
     }
   }
+
+  CustomVisionAzure(uploadimage: ArrayBuffer| string | null){
+   if (uploadimage instanceof ArrayBuffer) {
+     this.upl.push(new Uint8Array(uploadimage));
+   }
+    const predictionKeyValue = environment.Value;
+    const predictionKeyName = environment.Key;
+
+    console.log(this.upl)
+    const headers = new HttpHeaders()
+    .set('Content-Type', 'application/octet-stream')
+    .set(predictionKeyName, predictionKeyValue);
+  
+   
+
+    this.http.post<any>("https://imagesonepiececlassifications-prediction.cognitiveservices.azure.com/customvision/v3.0/Prediction/c775cf70-e0d8-42d4-9d8f-a1c2b54ec55f/classify/iterations/Iteration2/image",  , 
+    {headers}).subscribe((resp)=>
+    console.log(resp)
+    )
+  }
+
 }
