@@ -24,16 +24,21 @@ label:hover{
  
 }
 
+/* avatar card */
 .example-header-image {
   background-size: cover;
 }
 
+/* parte superiore card */
 .mat-mdc-card-header{
   background-image: linear-gradient(0deg, rgba(189,189,189,1) 0%, rgba(253,253,253,1) 40%);
 }
 
+/* parte inferiore card */
 .mat-mdc-card-content:last-child{
-  background-image: linear-gradient(0deg, rgba(204,238,255,1) 0%, rgba(255,255,255,1) 59%);
+  /* background-image: linear-gradient(0deg, rgba(204,238,255,1) 0%, rgba(255,255,255,1) 59%); */
+  background-image: linear-gradient( #ffffffc4 0%, #ffffffc4 100%), url(../../assets/images/going_merry_bg2.png);
+  background-size: cover;
 }
 
 .contenitoreImage{
