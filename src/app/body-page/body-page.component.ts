@@ -3,6 +3,7 @@ import { ListenerDirective } from '../ListenerDirective';
 import { faFileCirclePlus } from '@fortawesome/free-solid-svg-icons';
 import { HttpClient, HttpHeaders } from  '@angular/common/http';
 import { environment } from 'src/environments/environment';
+
 import { OnePieceAvatarService } from 'src/assets/services/one-piece-avatar.service';
 import * as base64js from 'base64-js';
 
@@ -16,14 +17,16 @@ export class BodyPageComponent {
     | ListenerDirective
     | undefined;
 
+  
+
   uploadedImage: string | ArrayBuffer | null = null;
   fontIcon = faFileCirclePlus;
   upl: Uint8Array[] = [];
   source: any[] = [];
   TagName: string[] = []; //tutti i tag name 
   Probability: any[] = []; // tutte le probabilità
-  ProbabilityMax: any[] = []; //il risultato con la probabilità più alta
-  numFixArr: any[] = [];
+  ProbabilityMax: number = 0; //il risultato con la probabilità più alta
+  numFixArr: any[] = [];  //cifre probabilità fixate a 2 decimali
   TagNameProbabilityMax: string = ''; //il nome con percentuale più alta
   constructor(
     private http: HttpClient,
@@ -116,6 +119,7 @@ export class BodyPageComponent {
             }
           }
         });
+        
         for (let i = 0; i < response.length; i++) {
           const probabilityString = this.ProbabilityMax.toString();
 
