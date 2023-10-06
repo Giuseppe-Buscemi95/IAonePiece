@@ -5,6 +5,8 @@ import { HttpClient, HttpHeaders } from  '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { OnePieceAvatarService } from 'src/assets/services/one-piece-avatar.service';
 import * as base64js from 'base64-js';
+import { ArrayType } from '@angular/compiler';
+import { elementAt } from 'rxjs';
 @Component({
   selector: 'app-body-page',
   templateUrl: './body-page.component.html',
@@ -19,7 +21,9 @@ export class BodyPageComponent{
   fontIcon = faFileCirclePlus;
   upl:Uint8Array[] = []
   source: any[] = [];
-  
+ TagName: string[] = [];
+ Probability: any[] = [];
+
 
   constructor(private http: HttpClient, public avatars: OnePieceAvatarService) {}
 
@@ -88,8 +92,19 @@ export class BodyPageComponent{
   
    
     this.http.post<any>("https://imagesonepiececlassifications-prediction.cognitiveservices.azure.com/customvision/v3.0/Prediction/c775cf70-e0d8-42d4-9d8f-a1c2b54ec55f/classify/iterations/Iteration2/image", blobImage , 
-    {headers}).subscribe((resp)=>
-    console.log(resp)
+    {headers}).subscribe((resp: any)=>{
+      let response = resp.predictions;
+      
+      for (let i = 0; i < response.length; i++) { this.TagName.push(response[i].tagName); }
+      for (let j = 0; j < response.length; j++){ this.Probability.push(response[j].probability);}
+    this.Probability.forEach(x => {
+      const ValoreABS = Number(x);
+      
+      console.log(ValoreABS.toFixed(2));
+    })
+
+    }
+   
     
 
     )
