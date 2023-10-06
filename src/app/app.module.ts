@@ -9,10 +9,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatGridListModule } from '@angular/material/grid-list';
 import {MatCardModule} from  '@angular/material/card';
 import { ListenerDirective } from './ListenerDirective';
+import { ProbabilityBgColorDirective } from './probability-bg-color.directive';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { HttpClientModule } from  '@angular/common/http';
-
 import { FormsModule } from '@angular/forms';
 
 @NgModule({
@@ -20,7 +20,8 @@ import { FormsModule } from '@angular/forms';
     AppComponent,
     NavbarComponent,
     BodyPageComponent,
-    ListenerDirective
+    ListenerDirective,
+    ProbabilityBgColorDirective
    
     
     
