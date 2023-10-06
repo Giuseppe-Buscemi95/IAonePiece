@@ -3,13 +3,14 @@ import { ListenerDirective } from '../ListenerDirective';
 import { faFileCirclePlus } from '@fortawesome/free-solid-svg-icons';
 import { HttpClient, HttpHeaders } from  '@angular/common/http';
 import { environment } from 'src/environments/environment';
+import { OnePieceAvatarService } from 'src/assets/services/one-piece-avatar.service';
 import * as base64js from 'base64-js';
 @Component({
   selector: 'app-body-page',
   templateUrl: './body-page.component.html',
   styleUrls: ['./body-page.component.css'],
 })
-export class BodyPageComponent {
+export class BodyPageComponent{
   @ViewChild(ListenerDirective) listenerDirective:
     | ListenerDirective
     | undefined;
@@ -20,8 +21,10 @@ export class BodyPageComponent {
   source: any[] = [];
   
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, public avatars: OnePieceAvatarService) {}
 
+
+  
   onDragDrop(event: FileList) {
     console.log(event[0].name);
     this.source.push(event[0].name); //pusho l'evento in un array any
@@ -58,40 +61,6 @@ export class BodyPageComponent {
     } else {
       // Nessun file selezionato, gestisci il caso appropriato qui
       console.log('Nessun file selezionato.');
-    }
-  }
-
-  getAvatarImage(pgName: string):string {
-    switch(pgName){
-      case 'Luffy':
-        return "../../assets/images/luffy_avatar.jpeg";
-
-      case 'Zoro':
-        return "../../assets/images/zoro_avatar.jpg";
-
-      case 'Sanji':
-        return "../../assets/images/sanji_avatar.jpeg";
-
-      case 'Tony Chopper':
-        return "../../assets/images/chopper_avatar.jpeg";
-
-      case 'Nami':
-        return "../../assets/images/nami_avatar.jpeg";
-
-      case 'Usopp':
-        return "../../assets/images/usopp_avatar.jpeg";
-
-      case 'Nico Robin':
-        return "../../assets/images/nico_robin_avatar.jpeg";
-
-      case 'Aokiji':
-        return "../../assets/images/aokiji_avatar.jpeg";
-
-      case 'Crocodile':
-        return "../../assets/images/crocodile_avatar.jpeg";
-
-      default: 
-        return ""; 
     }
   }
 

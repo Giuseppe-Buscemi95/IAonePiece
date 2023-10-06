@@ -29,8 +29,8 @@
 
                   <mat-card-header>
                     
-                    <div mat-card-avatar class="example-header-image" [ngStyle]="{ 'background-image': 'url(' + getAvatarImage('Sanji') + ')' }"></div>
-                    <mat-card-title>Sanji</mat-card-title>
+                    <div mat-card-avatar class="example-header-image" [ngStyle]="{ 'background-image': 'url(' + this.avatars.getAvatarImage('Chopper') + ')' }"></div>
+                    <mat-card-title>Chopper</mat-card-title>
                     <mat-card-subtitle style="color:#5a5a5a; padding-bottom: 16px">One Piece</mat-card-subtitle>
                   </mat-card-header>
                   <img mat-card-image [src]="uploadedImage" class="img-fluid" alt="Not found">
@@ -42,7 +42,7 @@
                       bred for hunting. -->
                     </p>
                     <div  style="text-align: center;">
-                      <button class="retryButton" onclick="window.location.reload()"> Prova di nuovo ! </button>
+                      <button class="retryButton" onclick="window.location.reload()"> Try Again ! </button>
                     </div>
 
                   </mat-card-content>
