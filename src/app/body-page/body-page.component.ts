@@ -38,11 +38,6 @@ export class BodyPageComponent{
   }
 
   onDragClick(event: Event) {
-    // const loader = document.getElementById('loader');
-
-    // setInterval(() => {
-    //   loader?.removeAttribute('none');
-    // }, 6000);
 
     let inputElement = event.target as HTMLInputElement; //casting
     const filePath = inputElement.files; // Ottieni il file selezionato
