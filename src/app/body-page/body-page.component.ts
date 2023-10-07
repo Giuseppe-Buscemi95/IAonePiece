@@ -28,6 +28,7 @@ export class BodyPageComponent {
   ProbabilityMax: number = 0; //il risultato con la probabilità più alta
   numFixArr: any[] = [];  //cifre probabilità fixate a 2 decimali
   TagNameProbabilityMax: string = ''; //il nome con percentuale più alta
+  Estensione: string[] = [];  // questa variabile contien l'estensione dell'immaggine inserita 
   constructor(
     private http: HttpClient,
     public avatars: OnePieceAvatarService
@@ -68,8 +69,16 @@ export class BodyPageComponent {
   CustomVisionAzure(uploadimage: ArrayBuffer | string | null) {
     let byteArrayImage;
     let blobImage;
-
     console.log(uploadimage);
+    
+  this.Estensione = uploadimage.toString().split(";");
+    
+    const estensione = this.Estensione[0].split("/");
+    
+    if (estensione[1].toLowerCase() === 'jpeg' || estensione[1].toLowerCase() === 'png') {   //questo if controlla l'esetensione dell'imamggine inserita quindi andrebbe inserito il codice al suo interno
+      console.log("otiimo");
+    }
+   
     if (uploadimage instanceof ArrayBuffer) {
       this.upl.push(new Uint8Array(uploadimage));
     } else if (uploadimage != null) {
