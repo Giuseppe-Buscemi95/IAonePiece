@@ -61,7 +61,7 @@ export class OnePieceAvatarService {
   }
   getDescription(pgName: string): string {
     switch(pgName){
-      case 'Luffy':
+      case 'Monkey D. Luffy':
         return  this.Desc.Luffy;
 
       case 'Roronoa Zoro':
@@ -82,13 +82,23 @@ export class OnePieceAvatarService {
       case 'Nico Robin':
         return this.Desc.NicoRobin;
 
-      case 'Aokijii':
+      case 'Kuzan':
         return this.Desc.akoiji;
 
       case 'Crocodile':
         return this.Desc.Crocodile;
-
-      default: 
+      case 'Brook':
+        case this.Desc.Brook:
+        return
+        case 'Jinbe':
+        return this.Desc.Jinbe
+        case 'Dracule Mihawk':
+        return this.Desc.DraculeMihawk
+        case 'Portgas D. Ace':
+        return this.Desc.Ace
+        case  'Shanks':
+        return this.Desc.Shanks
+        default:
         return ""; 
     }
   }
