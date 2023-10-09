@@ -14,6 +14,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { HttpClientModule } from  '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { MatDialogModule} from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { FormsModule } from '@angular/forms';
     NavbarComponent,
     BodyPageComponent,
     ListenerDirective,
-    ProbabilityBgColorDirective
+    ProbabilityBgColorDirective,
+    
    
     
     
@@ -36,7 +38,8 @@ import { FormsModule } from '@angular/forms';
     MatRadioModule,
     FormsModule,
     MatProgressSpinnerModule, 
-    HttpClientModule
+    HttpClientModule,
+    MatDialogModule
   
     
   ],

@@ -2,7 +2,7 @@
   <div class="row  contenitoreImage">
     <div class="col-12">
 
-      <div *ngIf="uploadedImage === null; then UploadImage else ShowImage"></div>
+      <div *ngIf="(uploadedImage === null || ImageFormat === true); then UploadImage  else ShowImage"></div>
 
         <ng-template #UploadImage> 
 
@@ -58,6 +58,3 @@
   </div>
   
 </div>
-
-
-

@@ -1,11 +1,12 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, ViewChild , Inject } from '@angular/core';
 import { ListenerDirective } from '../ListenerDirective';
 import { faFileCirclePlus } from '@fortawesome/free-solid-svg-icons';
 import { HttpClient, HttpHeaders } from  '@angular/common/http';
 import { environment } from 'src/environments/environment';
-
+import {MatDialog} from '@angular/material/dialog'
 import { OnePieceAvatarService } from 'src/assets/services/one-piece-avatar.service';
 import * as base64js from 'base64-js';
+import { ErrorDialog } from './ErrorDialog';
 
 @Component({
   selector: 'app-body-page',
@@ -29,10 +30,23 @@ export class BodyPageComponent {
   numFixArr: any[] = [];  //cifre probabilità fixate a 2 decimali
   TagNameProbabilityMax: string = ''; //il nome con percentuale più alta
   Estensione: string[] = [];  // questa variabile contien l'estensione dell'immaggine inserita 
+  ImageFormat: boolean = false;
   constructor(
     private http: HttpClient,
-    public avatars: OnePieceAvatarService
+    public avatars: OnePieceAvatarService,
+    public dialog: MatDialog
   ) {}
+
+  openDialog() {
+ 
+    this.dialog.open(ErrorDialog,{
+      
+data: {
+  error: "Erroe nell'inserimento dell'immaggine sono supportate solo immaggini di tipo JPEG,JPG,PNG"
+}
+    })
+   
+  }
 
   onDragDrop(event: FileList) {
     console.log(event[0].name);
@@ -75,11 +89,10 @@ export class BodyPageComponent {
     
     const estensione = this.Estensione[0].split("/");
     
-    if (estensione[1].toLowerCase() === 'jpeg' || estensione[1].toLowerCase() === 'png') {   //questo if controlla l'esetensione dell'imamggine inserita quindi andrebbe inserito il codice al suo interno
+    if (estensione[1].toLowerCase() === 'jpeg' || estensione[1].toLowerCase() === 'png'|| estensione[1].toLowerCase() === 'jpg' || estensione[1].toLowerCase() === 'webp') {   //questo if controlla l'esetensione dell'imamggine inserita quindi andrebbe inserito il codice al suo interno
       console.log("otiimo");
-    }
-   
-    if (uploadimage instanceof ArrayBuffer) {
+
+ if (uploadimage instanceof ArrayBuffer) {
       this.upl.push(new Uint8Array(uploadimage));
     } else if (uploadimage != null) {
       const base64WithoutPrefix = uploadimage.replace(
@@ -139,5 +152,12 @@ export class BodyPageComponent {
           this.TagName.push(response[i].tagName);
         }
       });
+
+    }else{
+    this.ImageFormat = true;
+    this.openDialog();
+
+    }//chiusura if controllo estensione
+   
   }
 }
