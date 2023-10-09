@@ -1,11 +1,12 @@
 import { Injectable } from '@angular/core';
+import { CharacterDescriptionService } from 'src/app/character-description.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class OnePieceAvatarService {
 
-  constructor() { }
+  constructor(private Desc: CharacterDescriptionService) { }
 
   getAvatarImage(pgName: string):string {
     switch(pgName){
@@ -53,6 +54,39 @@ export class OnePieceAvatarService {
 
       case 'Dracule Mihawk':
         return "../../assets/images/mihawk_avatar.jpeg";
+
+      default: 
+        return ""; 
+    }
+  }
+  getDescription(pgName: string): string {
+    switch(pgName){
+      case 'Luffy':
+        return  this.Desc.Luffy;
+
+      case 'Roronoa Zoro':
+        return this.Desc.Zoro;
+
+      case 'Sanji':
+        return this.Desc.sanji;
+
+      case 'Tony Chopper':
+        return this.Desc.Chopper;
+
+      case 'Nami':
+        return this.Desc.Nami;
+
+      case 'Usop':
+        return this.Desc.Usop;
+
+      case 'Nico Robin':
+        return this.Desc.NicoRobin;
+
+      case 'Aokijii':
+        return this.Desc.akoiji;
+
+      case 'Crocodile':
+        return this.Desc.Crocodile;
 
       default: 
         return ""; 

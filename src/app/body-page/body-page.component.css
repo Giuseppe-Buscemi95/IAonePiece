@@ -126,3 +126,16 @@ label:hover{
   background-color: #4ea3ff;
 
 }
+.StyleModal{
+ 
+  width: 500px;
+  height: 300px;
+  border: 2px inset #f5873d;
+  
+  padding: 20px;
+  opacity: 0.93;
+  background: linear-gradient(0deg, #f6911e 21%, #f7eded 100%);
+}
+.StyleContent{
+  
+}
