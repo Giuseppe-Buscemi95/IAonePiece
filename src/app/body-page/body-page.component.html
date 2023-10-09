@@ -37,10 +37,7 @@
                   <img mat-card-image [src]="uploadedImage" class="img-fluid" alt="Not found">
                   <mat-card-content style="padding-top:16px">
                     <p>
-                      So cucinare, so dare calci, mi piacciono le femmine, il mio sogno è pescare in un posto dove ci sono tutti i pesci, perdo ingenti litri di sangue dal naso e... guardo Dellimellow su Youtube!
-                      <!-- The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
-                      A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
-                      bred for hunting. -->
+                     {{this.avatars.getDescription(TagNameProbabilityMax)}}
                     </p>
                     <div  style="text-align: center;">
                       <button class="retryButton" onclick="window.location.reload()"> Try Again ! </button>
@@ -57,4 +54,11 @@
     </div>
   </div>
   
+</div>
+<div class="container contenitoreImage">
+  <div class="col-3">
+    <img src="" alt="">
+    <p>LINGUAGGI UTILIZZATI</p>
+    <img src="" alt="">
+  </div>
 </div>
