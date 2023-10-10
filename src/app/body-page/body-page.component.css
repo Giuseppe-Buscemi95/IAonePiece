@@ -38,6 +38,7 @@ label:hover{
 .probabilityChance{
   display: flex;
   align-items: center;
+  justify-content: center;
   margin-left: auto;
   border: 1px ridge transparent;
   border-radius: 50%;
@@ -135,7 +136,4 @@ label:hover{
   padding: 20px;
   opacity: 0.93;
   background: linear-gradient(0deg, #f6911e 21%, #f7eded 100%);
-}
-.StyleContent{
-  
 }

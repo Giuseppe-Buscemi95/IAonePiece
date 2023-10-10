@@ -87,19 +87,25 @@ export class OnePieceAvatarService {
 
       case 'Crocodile':
         return this.Desc.Crocodile;
+
       case 'Brook':
-        case this.Desc.Brook:
-        return
-        case 'Jinbe':
-        return this.Desc.Jinbe
-        case 'Dracule Mihawk':
-        return this.Desc.DraculeMihawk
-        case 'Portgas D. Ace':
-        return this.Desc.Ace
-        case  'Shanks':
-        return this.Desc.Shanks
-        default:
+        return this.Desc.Brook;
+
+      case 'Jinbe':
+        return this.Desc.Jinbe;
+
+      case 'Dracule Mihawk':
+        return this.Desc.DraculeMihawk;
+
+      case 'Portgas D. Ace':
+        return this.Desc.Ace;
+
+      case  'Shanks':
+        return this.Desc.Shanks;
+
+      default:
         return ""; 
+        
     }
   }
 }

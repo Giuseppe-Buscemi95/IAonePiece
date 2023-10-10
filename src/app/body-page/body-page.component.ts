@@ -42,7 +42,7 @@ export class BodyPageComponent {
     this.dialog.open(ErrorDialog,{
       
 data: {
-  error: "Erroe nell'inserimento dell'immaggine sono supportate solo immaggini di tipo JPEG,JPG,PNG"
+  error: "Errore nell'inserimento dell'immaggine: sono supportate solo immagini di tipo JPEG,JPG,PNG e WEBP"
 }
     })
    
@@ -89,14 +89,14 @@ data: {
     
     const estensione = this.Estensione[0].split("/");
     
-    if (estensione[1].toLowerCase() === 'jpeg' || estensione[1].toLowerCase() === 'png'|| estensione[1].toLowerCase() === 'jpg' || estensione[1].toLowerCase() === 'webp') {   //questo if controlla l'esetensione dell'imamggine inserita quindi andrebbe inserito il codice al suo interno
-      console.log("otiimo");
+    if (estensione[1].toLowerCase() === 'jpeg' || estensione[1].toLowerCase() === 'png'|| estensione[1].toLowerCase() === 'jpg' || estensione[1].toLowerCase() === 'webp') {   //questo if controlla l'esetensione dell'imamgine inserita quindi andrebbe inserito il codice al suo interno
+      console.log("ottimo");
 
  if (uploadimage instanceof ArrayBuffer) {
       this.upl.push(new Uint8Array(uploadimage));
     } else if (uploadimage != null) {
       const base64WithoutPrefix = uploadimage.replace(
-        /^data:image\/(jpeg|jpg);base64,/,
+        /^data:image\/(jpeg|jpg|png);base64,/,
         ''
       ); //rimozione del prefisso prima della conversione
 
