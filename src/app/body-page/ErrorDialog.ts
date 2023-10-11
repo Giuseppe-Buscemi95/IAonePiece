@@ -6,9 +6,9 @@ import { MAT_DIALOG_DATA } from '@angular/material/dialog';
   template: `
   <div class="container StyleModal" >
     <div class="col-12 StyleContent">
-    <h1 mat-dialog-title>Inserimento Immagine fallito </h1>
+    <h1 mat-dialog-title> Failed to insert image! </h1>
 <div mat-dialog-content style="text-align: center;">
-  Errore :
+  Error:
   <br>
   <p style="text-align: center;">{{data.error}}</p>
   

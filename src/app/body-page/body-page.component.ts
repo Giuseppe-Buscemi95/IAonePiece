@@ -42,7 +42,7 @@ export class BodyPageComponent {
     this.dialog.open(ErrorDialog,{
       
 data: {
-  error: "Errore nell'inserimento dell'immaggine: sono supportate solo immagini di tipo JPEG,JPG,PNG e WEBP"
+  error: "Only the following image extensions are accepted: JPG, JPEG, PNG, BMP, GIF."
 }
     })
    
@@ -89,20 +89,21 @@ data: {
     
     const estensione = this.Estensione[0].split("/");
     
-    if (estensione[1].toLowerCase() === 'jpeg' || estensione[1].toLowerCase() === 'png'|| estensione[1].toLowerCase() === 'jpg' || estensione[1].toLowerCase() === 'webp') {   //questo if controlla l'esetensione dell'imamgine inserita quindi andrebbe inserito il codice al suo interno
+    if (estensione[1].toLowerCase() === 'jpeg' || estensione[1].toLowerCase() === 'png'|| estensione[1].toLowerCase() === 'jpg' ||  estensione[1].toLowerCase() === 'bmp' || estensione[1].toLowerCase() === 'gif') {   //questo if controlla l'esetensione dell'imamgine inserita quindi andrebbe inserito il codice al suo interno
       console.log("ottimo");
 
  if (uploadimage instanceof ArrayBuffer) {
       this.upl.push(new Uint8Array(uploadimage));
     } else if (uploadimage != null) {
       const base64WithoutPrefix = uploadimage.replace(
-        /^data:image\/(jpeg|jpg|png|webp);base64,/,
+        /^data:image\/(jpeg|jpg|png|bmp|gif);base64,/,
         ''
       ); //rimozione del prefisso prima della conversione
 
-      // Conversione da stringa64 ad array di byte, e successivo incapsulamento in blob, da passare a richiesta HTTP
+
       byteArrayImage = base64js.toByteArray(base64WithoutPrefix);
       blobImage = new Blob([byteArrayImage], { type: 'base64' });
+      
       console.log(blobImage);
     }
 
@@ -117,7 +118,7 @@ data: {
 
     this.http
       .post<any>(
-        environment.url,blobImage,{ headers }
+        environment.url, blobImage,{ headers }
       ).subscribe((resp: any) => {
         let response = resp.predictions;
         console.log(response);
