@@ -96,7 +96,7 @@ data: {
       this.upl.push(new Uint8Array(uploadimage));
     } else if (uploadimage != null) {
       const base64WithoutPrefix = uploadimage.replace(
-        /^data:image\/(jpeg|jpg|png);base64,/,
+        /^data:image\/(jpeg|jpg|png|webp);base64,/,
         ''
       ); //rimozione del prefisso prima della conversione
 

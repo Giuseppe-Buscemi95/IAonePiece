@@ -67,10 +67,10 @@ export class OnePieceAvatarService {
       case 'Roronoa Zoro':
         return this.Desc.Zoro;
 
-      case 'Sanji':
+      case 'Vinsmoke Sanji':
         return this.Desc.sanji;
 
-      case 'Tony Chopper':
+      case 'Tony Tony Chopper':
         return this.Desc.Chopper;
 
       case 'Nami':
