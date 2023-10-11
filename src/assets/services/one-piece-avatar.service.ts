@@ -73,6 +73,9 @@ export class OnePieceAvatarService {
       case 'Tony Tony Chopper':
         return this.Desc.Chopper;
 
+      case 'Franky':
+        return this.Desc.Franky;
+
       case 'Nami':
         return this.Desc.Nami;
 
